@@ -1,7 +1,7 @@
 const { Command } = require('discord-akairo');
 var util = require("../helpers/util");
 
-class ClanCommand extends Command {
+class JoinCommand extends Command {
     constructor() {
         super('join', {
            aliases: ['join'],
@@ -30,4 +30,4 @@ class ClanCommand extends Command {
     }
 }
 
-module.exports = ClanCommand;
+module.exports = JoinCommand;

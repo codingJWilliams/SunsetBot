@@ -31,4 +31,17 @@ MongoClient.connect(url, {
   console.log("DB Up :D")
 })
 
+
+client.build();
+
+client.commandHandler.resolver.addType('clan', word => {
+    if (!word) return null;
+
+    return global.mongo.collection("clans").findOne({
+      name: word.toLowerCase()
+    });
+});
+
+
+
 client.login(config.token);
