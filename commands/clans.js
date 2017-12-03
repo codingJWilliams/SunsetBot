@@ -31,6 +31,13 @@ class ClansCommand extends Command {
 
     async exec(message, args) {
       var clans = await global.mongo.collection("clans").find({}).toArray();
+      clans = clans.sort( (a, b) => {
+        var a1 = getMString(a.role, message.guild.members).amount;
+        var b1 = getMString(b.role, message.guild.members).amount
+        if (a1 > b1) return -1;
+        if (a1 === b1) return 0;
+        return 1
+      })
       var extra = [];
       var emb = new util.d.RichEmbed()
       .setTitle(":book: All Clans")
