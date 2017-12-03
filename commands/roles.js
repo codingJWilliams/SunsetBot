@@ -43,6 +43,7 @@ class ClansCommand extends Command {
           chunks.push(consumable.splice(0, 16));
         }
       }
+      console.log(chunks)
       var current = chunks[pg + 1];
       var e =
         new util.d.RichEmbed()
