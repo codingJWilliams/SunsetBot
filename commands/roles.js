@@ -54,7 +54,7 @@ class ClansCommand extends Command {
           ms = ms + "<@" + sr.owner + ">\n"
         })
         e.addBlankField()
-        e.addField("Roles", things);
+        e.addField("Roles", rs);
         e.addField("Owners", ms, true)
         m.edit(e)
         //m.clearReactions()
