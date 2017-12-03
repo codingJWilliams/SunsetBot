@@ -37,7 +37,7 @@ class ClansCommand extends Command {
         var consumable = roles.slice(0);
         var chunks = []
         console.log(chunks.length)
-        while(consumable.length) {
+        while(consumable.length - 1) {
           chunks.push(consumable.splice(0,16));
         }
         var current = chunks[pg + 1];
