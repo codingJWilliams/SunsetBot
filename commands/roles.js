@@ -32,7 +32,7 @@ class ClansCommand extends Command {
     async exec(message, args) {
       var roles = await global.mongo.collection("sharableroles").find({}).toArray();
       var extra = [];
-      var m = message.channel.send("Loading...")
+      var m = await message.channel.send("Loading...")
       function displayPage(pg) {
         var consumable = roles.slice(0);
         var chunks = []
