@@ -64,7 +64,7 @@ class ClansCommand extends Command {
       //m.clearReactions()
       //m.react("←").then( () => m.react("→"))
     }
-    displayPage(args.pg - 1);
+    displayPage(args.pg);
   }
 }
 
