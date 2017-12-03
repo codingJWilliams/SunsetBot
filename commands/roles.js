@@ -47,12 +47,15 @@ class ClansCommand extends Command {
         .setDescription("This is a brief list of all the sharable roles on the server. Type `!roles 2` to see the next page. See a role you like? Be kind to the owner and maybe they'll give it to you!")
         .setColor(0x0a96de)
         .setFooter("Page " + (pg) + " of " + chunks.length);
-        var things = ""
+        var rs = ""
+        var ms = ""
         current.map( sr => {
-          things = things + "<@&" + sr.role + "> - <@" + sr.owner + ">\n";
+          rs = rs + "<@&" + sr.role + ">\n";
+          ms = ms + "<@" + sr.owner + ">\n"
         })
         e.addBlankField()
         e.addField("Roles", things);
+        e.addField("Owners", ms, true)
         m.edit(e)
         //m.clearReactions()
         //m.react("←").then( () => m.react("→"))
