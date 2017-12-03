@@ -65,7 +65,6 @@ class ClansCommand extends Command {
       //m.react("←").then( () => m.react("→"))
     }
     displayPage(args.pg - 1);
-    message.channel.send(emb)
   }
 }
 
