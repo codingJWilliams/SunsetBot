@@ -16,7 +16,8 @@ class SrCommand extends Command {
              },
              {
                id: "sr",
-               type: "role"
+               type: "role",
+               match: "rest"
              }
            ]
         });
