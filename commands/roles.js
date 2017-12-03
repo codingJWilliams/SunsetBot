@@ -39,13 +39,13 @@ class ClansCommand extends Command {
         while(consumable.length) {
           chunks.push(consumable.splice(0,16));
         }
-        var current = chunks[pg + 1];
+        var current = chunks[pg];
         var e = 
         new util.d.RichEmbed()
         .setTitle(":book: All Sharable Roles")
         .setDescription("This is a brief list of all the sharable roles on the server. Type `!roles 2` to see the next page. See a role you like? Be kind to the owner and maybe they'll give it to you!")
         .setColor(0x0a96de)
-        .setFooter("Page " + (pg + 1) + " of " + chunks.length);
+        .setFooter("Page " + (pg) + " of " + chunks.length);
         var things = ""
         current.map( sr => {
           things = things + "<@&" + sr.role + "> - <@" + sr.owner + ">\n";
