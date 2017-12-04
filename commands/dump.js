@@ -5,18 +5,18 @@ class DumpCommand extends Command {
     constructor() {
         super('dump', {
            aliases: ['dump'],
-           split: "none",
            args: [
              {
                id: "vc",
-               type: "voicechannel"
+               type: "voicechannel",
+               match: "rest"
              }
            ]
         });
     }
 
     async exec(message, args) {
-      var members = []
+      var members = [];
       args.vc.members.map(m => members.push(m));
       var emb = new util.d.RichEmbed()
       .setTitle(":book: Members Currently In " + args.vc.name)
