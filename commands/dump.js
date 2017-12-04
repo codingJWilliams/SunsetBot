@@ -28,6 +28,14 @@ class DumpCommand extends Command {
       .addField("Auto-Award", "The dump ID is: `" + dumpid + "`.\nDons: Type `!dumpaward " + dumpid + " 10000` to award all members")
       .setFooter(util.makeFooter(message.author), message.author.displayAvatarURL);
       message.channel.send(emb)
+      global.mongo.collection("dumps").insertOne({
+        by: message.author.id,
+        vc: args.vc.id,
+        vcname: args.vc.name,
+        time: Date.now(),
+        id: dumpid,
+        people: members.map(m => m.id)
+      })
     }
 }
 
