@@ -43,8 +43,8 @@ class AwardCommand extends Command {
       var m = await message.channel.send(new util.d.RichEmbed().setTitle(":alarm_clock: Awarding " + possible.people.length + " members.").setColor(0x0a96de).setFooter(util.makeFooter(message.author), message.author.displayAvatarURL))
       function aSleep(ms) { return new Promise((res, rej) => setTimeout(res, ms)) };
       for (var i = 0; i < possible.people.length; i++) {
-        aSleep(1000);
-        eco.award(possible.people[i], args.amnt)
+        await aSleep(1000);
+        await eco.award(possible.people[i], args.amnt)
       }
       m.edit(new util.d.RichEmbed().setTitle(":white_check_mark: Awarded "+ args.amnt +" to " + possible.people.length + " members.").setColor(0x49bd1a).setFooter(util.makeFooter(message.author), message.author.displayAvatarURL))
     }
