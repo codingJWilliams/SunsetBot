@@ -1,11 +1,11 @@
 module.exports = (level) => {
   var reward = 0;
   var rank = "Initiate";
-  if (level >= 5) { reward = 50000; rank = "Initiate" }
-  if (level >= 10) { reward = 100000; rank = "Protector" }
-  if (level >= 20) { reward = 250000; rank = "Enforcer" }
-  if (level >= 30) { reward = 500000; rank = "Veteran" }
-  if (level >= 40) { reward = 1000000; rank = "Guardian" }
+  if (level == 5) { reward = 50000; rank = "Initiate" }
+  if (level == 10) { reward = 100000; rank = "Protector" }
+  if (level == 20) { reward = 250000; rank = "Enforcer" }
+  if (level == 30) { reward = 500000; rank = "Veteran" }
+  if (level == 40) { reward = 1000000; rank = "Guardian" }
   if (level >= 90) { reward = 10000000; rank = "Guardian" }
   return {
     reward: reward,
