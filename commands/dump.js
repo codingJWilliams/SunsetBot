@@ -22,7 +22,8 @@ class DumpCommand extends Command {
       .setTitle(":book: Members Currently In " + args.vc.name)
       .setDescription("```" + members.map(m => `<@${m.id}> (${m.user.tag})`).join("\n") + "```")
       .setColor(0x0a96de)
-      .setFooter(util.makeFooter(message.author), message.author.displayAvatarURL)
+      .setFooter(util.makeFooter(message.author), message.author.displayAvatarURL);
+      message.channel.send(emb)
     }
 }
 
