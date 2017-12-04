@@ -8,7 +8,7 @@ class DumpCommand extends Command {
            args: [
              {
                id: "vc",
-               type: "voicechannel",
+               type: "voiceChannel",
                match: "rest"
              }
            ]
