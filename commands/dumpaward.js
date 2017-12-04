@@ -1,5 +1,3 @@
-import { setTimeout } from 'timers';
-
 const { Command } = require('discord-akairo');
 var util = require("../helpers/util");
 var eco = require("../helpers/economy");
