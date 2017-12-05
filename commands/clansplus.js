@@ -67,7 +67,6 @@ async function makePage(emb, m) {
     await m.react("➡");
     await m.react("🗑");
   }
-  await m.clearReactions();
   m.reactions.map(async (r) => {
     console.log(r)
     console.log(r.me)
