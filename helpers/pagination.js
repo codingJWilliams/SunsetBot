@@ -12,7 +12,7 @@ exports.showPage = function showPage(pg, msg, chunks) {
   var ind = pg - 1;
   var chs = chunks[ind];
   var tot = chunks.length
-  makePage(makeEmbed(chs, message, pg, tot), msg);
+  makePage(makeEmbed(chs, pg, tot), pg, tot);
 }
 async function makePage(emb, m) {
   var m = await m.edit(emb);
@@ -31,13 +31,13 @@ async function makePage(emb, m) {
   })
   return m
 }
-function makeEmbed(chunks, message) {
+function makeEmbed(chunks, pg, tot) {
   var extra = [];
   var emb = new util.d.RichEmbed()
   .setTitle(":book: All Clans")
   .setDescription("Use `!clan <clan name>` for a longer description and a list of clan owners.")
   .setColor(0x0a96de)
-  .setFooter(util.makeFooter(message.author), message.author.displayAvatarURL)
+  .setFooter(`Page ${pg} of ${tot}`)
   chunks.map(
     (clan) => 
       emb.addField(clan.displayName, `Owners: ${util.makePeopleList(clan.owners)}\n${getMString(clan.role, message.guild.members).amount} members.\n  ${clan.desc}`)
