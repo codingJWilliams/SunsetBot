@@ -45,7 +45,7 @@ class ClansCommand extends Command {
         makePage(makeEmbed(chs), msg);
       }
       var currentPage = 1;
-      showPage(1, mes);
+      await showPage(1, mes);
       const collector = mes.createReactionCollector(
         (reaction, user) => user.id === message.author.id,
         { time: 150000 }
