@@ -71,7 +71,7 @@ async function makePage(emb, m) {
     console.log(r.count)
     if (r.count != 1) { // If the reaction wasn't by bot
       console.log("delete")
-      await r.remove(r.users.filter(u => this.client.user.id !== u.id)[0])
+      await r.remove(r.users.filter(u => u.client.user.id !== u.id)[0])
     }
   })
   return m
