@@ -1,4 +1,17 @@
 var util = require("./util")
+function getMString(id, mems) {
+  return {
+    amount: mems.filter(
+      (m) => 
+        m.roles.has(id)
+    ).size,
+    online: mems.filter(
+      (m) => 
+        m.roles.has(id) && m.presence.status === "online"
+    ).size
+  }
+}
+
 exports.chunk = function (myarr) {
   var i,j,temparray,chunk = 5;
   var chunks = [];
