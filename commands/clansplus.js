@@ -38,14 +38,23 @@ class ClansCommand extends Command {
         temparray = myarr.slice(i,i+chunk);
         chunks.push(temparray)
       };
-      var mes = await message.channel.send(".")
-      await makePage("TEST", mes)
+      var mes = await message.channel.send(":alarm_clock: ");
+      function showPage(pg, msg) {
+        var ind = pg - 1;
+        var chs = chunks[ind];
+        makePage(makeEmbed(chs), msg);
+      }
+      var currentPage = 1;
+      showPage(1, mes);
       const collector = mes.createReactionCollector(
         (reaction, user) => user.id === message.author.id,
-        { time: 15000 }
+        { time: 150000 }
       );
-      collector.on('collect', r => console.log(`Collected ${r.emoji.name}`));
-      collector.on('end', collected => console.log(`Collected ${collected.size} items`));
+      collector.on('collect', r => {
+        if (currentPage === 1 && r.emoji.name === "⬅") return showPage(1, mes);
+        if (r.emoji.name == "➡" && currentPage <= chunks.length) return showPage(currentPage + 1, mes)
+        if (r.emoji.name === "🗑") return mes.delete()
+      });
     }
 }
 async function makePage(emb, message) {
