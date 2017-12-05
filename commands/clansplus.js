@@ -42,7 +42,7 @@ class ClansCommand extends Command {
       function showPage(pg, msg) {
         var ind = pg - 1;
         var chs = chunks[ind];
-        makePage(makeEmbed(chs), msg);
+        makePage(makeEmbed(chs, message), msg);
       }
       var currentPage = 1;
       await showPage(1, mes);
@@ -58,14 +58,14 @@ class ClansCommand extends Command {
     }
 }
 async function makePage(emb, message) {
-  var m = await message.edit(emb);
+  var m = await m.edit(emb);
   await m.clearReactions();
   await m.react("⬅");
   await m.react("➡");
   await m.react("🗑");
   return m
 }
-function makeEmbed(chunks) {
+function makeEmbed(chunks, message) {
   var extra = [];
   var emb = new util.d.RichEmbed()
   .setTitle(":book: All Clans")
