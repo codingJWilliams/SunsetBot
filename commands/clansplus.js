@@ -39,10 +39,10 @@ class ClansCommand extends Command {
         chunks.push(temparray)
       };
       var mes = await message.channel.send(":alarm_clock: ");
-      function showPage(pg, msg) {
+      function showPage(pg, msg, tot) {
         var ind = pg - 1;
         var chs = chunks[ind];
-        makePage(makeEmbed(chs, message), msg);
+        makePage(makeEmbed(chs, message, pg, tot), msg);
       }
       var currentPage = 1;
       await showPage(1, mes);
@@ -53,8 +53,8 @@ class ClansCommand extends Command {
       console.log(chunks)
       collector.on('collect', r => {
         console.log(currentPage)
-        if (r.emoji.name === "⬅") return showPage(currentPage === 1 ? 1 : --currentPage, mes);
-        if (r.emoji.name == "➡" && currentPage <= chunks.length) { currentPage++; return showPage(currentPage, mes) }
+        if (r.emoji.name === "⬅") return showPage(currentPage === 1 ? 1 : --currentPage, mes, chunks.length);
+        if (r.emoji.name == "➡" && currentPage <= chunks.length) { currentPage++; return showPage(currentPage, mes, chunks.length) }
         if (r.emoji.name === "🗑") return mes.delete()
       });
     }
