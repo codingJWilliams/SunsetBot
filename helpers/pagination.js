@@ -26,7 +26,7 @@ exports.showPage = function showPage(pg, msg, chunks) {
   var ind = pg - 1;
   var chs = chunks[ind];
   var tot = chunks.length
-  makePage(makeEmbed(chs, pg, tot), pg, tot);
+  makePage(makeEmbed(chs, mgs, pg, tot), pg, tot);
 }
 async function makePage(emb, m) {
   var m = await m.edit(emb);
@@ -45,7 +45,7 @@ async function makePage(emb, m) {
   })
   return m
 }
-function makeEmbed(chunks, pg, tot) {
+function makeEmbed(chunks, message, pg, tot) {
   var extra = [];
   var emb = new util.d.RichEmbed()
   .setTitle(":book: All Clans")
