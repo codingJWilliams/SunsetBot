@@ -52,6 +52,7 @@ function makeEmbed(chunks, message, pg, tot) {
   .setDescription("Use `!clan <clan name>` for a longer description and a list of clan owners.")
   .setColor(0x0a96de)
   .setFooter(`Page ${pg} of ${tot}`)
+  console.log("c")
   chunks.map(
     (clan) => 
       emb.addField(clan.displayName, `Owners: ${util.makePeopleList(clan.owners)}\n${getMString(clan.role, message.guild.members).amount} members.\n  ${clan.desc}`)
