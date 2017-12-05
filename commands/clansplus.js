@@ -57,7 +57,7 @@ class ClansCommand extends Command {
       });
     }
 }
-async function makePage(emb, message) {
+async function makePage(emb, m) {
   var m = await m.edit(emb);
   await m.clearReactions();
   await m.react("⬅");
