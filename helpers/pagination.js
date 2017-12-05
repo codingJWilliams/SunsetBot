@@ -1,3 +1,4 @@
+var util = require("./util")
 exports.chunk = function (myarr) {
   var i,j,temparray,chunk = 5;
   var chunks = [];
