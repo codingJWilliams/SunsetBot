@@ -52,7 +52,7 @@ class ClansCommand extends Command {
       );
       collector.on('collect', r => {
         if (currentPage === 1 && r.emoji.name === "⬅") return showPage(1, mes);
-        if (r.emoji.name == "➡" && currentPage <= chunks.length) return showPage(currentPage + 1, mes)
+        if (r.emoji.name == "➡" && currentPage <= chunks.length) { currentPage++; return showPage(currentPage + 1, mes) }
         if (r.emoji.name === "🗑") return mes.delete()
       });
     }
