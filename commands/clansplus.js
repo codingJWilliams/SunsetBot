@@ -70,7 +70,8 @@ async function makePage(emb, m) {
   await m.clearReactions();
   m.reactions.map(async (r) => {
     console.log(r)
-    if (!r.message.me) { // If the reaction wasn't by bot
+    console.log(r.me)
+    if (!r.me) { // If the reaction wasn't by bot
       console.log("delete")
       await r.remove()
     }
