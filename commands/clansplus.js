@@ -54,8 +54,9 @@ class ClansCommand extends Command {
       collector.on('collect', r => {
         console.log(currentPage)
         if (r.emoji.name === "⬅") return showPage(currentPage === 1 ? 1 : --currentPage, mes, chunks.length);
-        if (r.emoji.name == "➡" && currentPage <= chunks.length) { currentPage++; return showPage(currentPage, mes, chunks.length) }
+        if (r.emoji.name == "➡" && currentPage < chunks.length) { currentPage++; return showPage(currentPage, mes, chunks.length) }
         if (r.emoji.name === "🗑") return mes.delete()
+        showPage(currentPage, mes, chunks.length)
       });
     }
 }
