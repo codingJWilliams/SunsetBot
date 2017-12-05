@@ -31,7 +31,7 @@ class ClansCommand extends Command {
         if (a1 === b1) return 0;
         return 1
       })
-      var i,j,temparray,chunk = 2;
+      var i,j,temparray,chunk = 6;
       var chunks = [];
       var myarr = clans
       for (i=0,j=myarr.length; i<j; i+=chunk) {
