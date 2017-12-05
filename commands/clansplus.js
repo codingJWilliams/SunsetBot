@@ -50,7 +50,9 @@ class ClansCommand extends Command {
         (reaction, user) => user.id === message.author.id,
         { time: 150000 }
       );
+      console.log(chunks)
       collector.on('collect', r => {
+        console.log(currentPage)
         if (currentPage === 1 && r.emoji.name === "⬅") return showPage(1, mes);
         if (r.emoji.name == "➡" && currentPage <= chunks.length) { currentPage++; return showPage(currentPage, mes) }
         if (r.emoji.name === "🗑") return mes.delete()
