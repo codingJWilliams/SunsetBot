@@ -36,7 +36,7 @@ class ClansCommand extends Command {
       var mes = await message.channel.send(":alarm_clock: ");
       
       var currentPage = 1;
-      await pagination.showPage(1, mes);
+      await pagination.showPage(1, mes, chunks);
       const collector = mes.createReactionCollector(
         (reaction, user) => user.id === message.author.id,
         { time: 150000 }
