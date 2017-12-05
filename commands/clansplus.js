@@ -62,10 +62,17 @@ class ClansCommand extends Command {
 }
 async function makePage(emb, m) {
   var m = await m.edit(emb);
+  if (m.reactions.size === 0) {
+    await m.react("⬅");
+    await m.react("➡");
+    await m.react("🗑");
+  }
   await m.clearReactions();
-  await m.react("⬅");
-  await m.react("➡");
-  await m.react("🗑");
+  m.reactions.map(async (r) => {
+    if (r.id !== m.author.id) { // If the reaction wasn't by bot
+      await r.remove()
+    }
+  })
   return m
 }
 function makeEmbed(chunks, message) {
