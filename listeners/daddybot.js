@@ -49,9 +49,14 @@ class DaddyListener extends Listener {
         "341143835604156428",
         "341143849646686211"
       ].filter(i => i !== reward.addrank).map(i => msg.guild.members.get(id).removeRole(i))
-
-      msg.channel.send("GG! You've been awarded " + reward.reward + " souls.")
-      eco.award(id, reward.reward)
+      if (reward.reward) {
+        msg.channel.send("GG! You've been awarded " + reward.reward + " souls.")
+      } else {
+        msg.channel.send("GG!")
+      }
+      
+      try { eco.award(id, reward.reward) }
+      catch (e) {}
     }
 }
 
