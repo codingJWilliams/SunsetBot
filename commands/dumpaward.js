@@ -65,7 +65,11 @@ class AwardCommand extends Command {
     };
     for (var i = 0; i < possible.people.length; i++) {
       await aSleep(1000);
-      await eco.award(possible.people[i], args.amnt)
+      try {
+        await eco.award(possible.people[i], args.amnt)
+      } catch (e) {
+        message.channel.send("Error, please screenshot and send to void (attempting to award " + args.amnt + " to "+ possible.people[i] +") : " + e.toString())
+      }
     }
     m.edit(new util.d.RichEmbed().setTitle(":white_check_mark: Awarded " + args.amnt + " to " + possible.people.length + " members.").setColor(0x49bd1a).setFooter(util.makeFooter(message.author), message.author.displayAvatarURL))
   }
