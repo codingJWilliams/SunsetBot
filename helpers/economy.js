@@ -17,7 +17,7 @@ async function getBal(uid) {
   try {
     var resp = await axios.get(baseURL + "/getbal/" + token);
   } catch (e) {
-    throw Error("That user ID could not be found")
+    throw Error("Couldn't find that member, are they still on Nightborn?")
   }
   /**
    * @type {Number}
