@@ -11,6 +11,7 @@ function getBal(uid) {
       timeIssued: Date.now()
     }, config.ecoserver_key);
     request(baseURL + "/getbal/" + token, function (error, response, body) {
+      console.log(body)
       var data = JSON.parse(body);
       if (data.balance !== undefined) {
         resolve(data.balance)
@@ -29,6 +30,7 @@ function setBal(uid, amount) {
       timeIssued: Date.now()
     }, config.ecoserver_key);
     request(baseURL + "/setbal/" + token, function (error, response, body) {
+      console.log("body")
       var data = JSON.parse(body);
       if (data.success) {
         resolve()
