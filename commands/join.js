@@ -5,6 +5,8 @@ class JoinCommand extends Command {
     constructor() {
         super('join', {
            aliases: ['join'],
+           //cooldown: 2 * 60 * 60 * 1000,
+           //ratelimit: 1,
            args: [
              {
                id: "clan",
@@ -15,6 +17,8 @@ class JoinCommand extends Command {
     }
 
     async exec(message, args) {
+      var locked = true;
+      if (locked && !message.member.roles.some(r => r.name === "Clanless")) return;
       var item = await global.mongo.collection("clans").findOne({name: args.clan.toLowerCase()});
       if (item == null) return message.channel.send(new util.d.RichEmbed().setTitle("Clan not found").setColor(util.red));
       var clans = await global.mongo.collection("clans").find({}).toArray();
