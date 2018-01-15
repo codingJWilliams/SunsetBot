@@ -2,9 +2,9 @@ const {
   AkairoClient
 } = require('discord-akairo');
 const config = require("./config.json");
-var MongoClient = require('mongodb').MongoClient
-, assert = require('assert');
-
+var MongoClient = require('mongodb')
+  .MongoClient,
+  assert = require('assert');
 const client = new AkairoClient({
   ownerID: ['193053876692189184'],
   prefix: ['!'],
@@ -14,34 +14,24 @@ const client = new AkairoClient({
 }, {
   disableEveryone: true
 });
-
-
 client.on("ready", () => {
   console.log("Ready :D")
 })
-
-
 var url = config.dbUrl;
-
 MongoClient.connect(url, {
-  authSource: "admin",
-  appname: "sunset"
-}).then( (db) => {
-  global.mongo = db;
-  console.log("DB Up :D")
-})
-
-
+    authSource: "admin",
+    appname: "sunset"
+  })
+  .then((db) => {
+    global.mongo = db;
+    console.log("DB Up :D")
+  })
 client.build();
-
 client.commandHandler.resolver.addType('clan', word => {
-    if (!word) return null;
-
-    return global.mongo.collection("clans").findOne({
+  if (!word) return null;
+  return global.mongo.collection("clans")
+    .findOne({
       name: word.toLowerCase()
     });
 });
-
-
-
 client.login(config.token);

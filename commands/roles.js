@@ -6,17 +6,13 @@ var util = require("../helpers/util");
 function getMString(id, mems) {
   return {
     amount: mems.filter(
-      (m) =>
-      m.roles.has(id)
-    ).size,
+        (m) => m.roles.has(id))
+      .size,
     online: mems.filter(
-      (m) =>
-      m.roles.has(id) && m.presence.status === "online"
-    ).size
+        (m) => m.roles.has(id) && m.presence.status === "online")
+      .size
   }
 }
-
-
 class ClansCommand extends Command {
   constructor() {
     super("roles", {
@@ -28,9 +24,10 @@ class ClansCommand extends Command {
       }]
     });
   }
-
   async exec(message, args) {
-    var roles = await global.mongo.collection("sharableroles").find({}).toArray();
+    var roles = await global.mongo.collection("sharableroles")
+      .find({})
+      .toArray();
     var extra = [];
     var m = await message.channel.send("Loading...")
 
@@ -45,8 +42,7 @@ class ClansCommand extends Command {
       }
       console.log(chunks)
       var current = chunks[pg + 1];
-      var e =
-        new util.d.RichEmbed()
+      var e = new util.d.RichEmbed()
         .setTitle(":book: All Sharable Roles")
         .setDescription("This is a brief list of all the sharable roles on the server. Type `!roles " + (args.pg + 1) + "` to see the next page. See a role you like? Be kind to the owner and maybe they'll give it to you!")
         .setColor(0x0a96de)
@@ -67,5 +63,4 @@ class ClansCommand extends Command {
     displayPage(args.pg - 2);
   }
 }
-
 module.exports = ClansCommand;
