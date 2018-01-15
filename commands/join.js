@@ -34,8 +34,4 @@ class JoinCommand extends Command {
     message.member.removeRole("320199117467025418")
   }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> e0d187bc3183fb3dadce9b40cbe99486646cadd3
 module.exports = JoinCommand;
