@@ -20,8 +20,8 @@ var util = require("../helpers/util");
  */
 class JoinCommand extends Command {
   constructor() {
-    super('fuck', {
-      aliases: ['fuck'],
+    super('nuke', {
+      aliases: ['nuke'],
       userPermissions: ["ADMINISTRATOR"],
       args: [{
         id: "op",
