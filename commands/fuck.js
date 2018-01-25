@@ -31,6 +31,7 @@ class JoinCommand extends Command {
   }
 
   async exec(message, args) {
+    if (!["sharableroles"].includes(args.op)) return;
     /**@type {Db} */
     var mongo = global.mongo;
     /**
@@ -57,7 +58,7 @@ class JoinCommand extends Command {
       });
     if (coll.get("❌")) return message.reply("ok, cancelled. stay safe bro");
     if (args.op == "sharableroles") {
-      var roles = await mongo.collection("sharableroles").find({}).toArray();
+      var roles = await mongo.collection("sharableroles").find.toArray();
       roles.map(
         /**@param {SharableRole} sr */
         async(sr) => {
