@@ -42,7 +42,7 @@ class JoinCommand extends Command {
         .setColor(0x36393e)
         .setTitle("Fuck, u sure?")
         .setDescription("**React <:gasm:310821749467906048> to show that ur sure bro**")
-        .setAuthor("Or press :x: to not...")
+        .setFooter("Or press :x: to not...")
       );
       await m.react(":gasm:310821749467906048");
       await m.react("❌");
@@ -56,6 +56,7 @@ class JoinCommand extends Command {
         }, {
           max: 1
         });
+      console.log(coll)
       //if (coll.get(""))
       /*var roles = await mongo.collection("sharableroles").find({}).toArray();
       roles.map(
