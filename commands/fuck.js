@@ -52,7 +52,7 @@ class JoinCommand extends Command {
          * @param {User} user
          */
         (reaction, user) => {
-          return reaction.emoji.id == "310821749467906048" && user.id == message.author.id;
+          return (reaction.emoji.id == "310821749467906048" || reaction.emoji.name == "❌") && user.id == message.author.id;
         }, {
           max: 1
         });
