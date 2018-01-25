@@ -33,10 +33,10 @@ class ClansCommand extends Command {
       [nine_eleven],
       [deploy]
     ];
-    var m = await message.channel.send(animation[1].join(" "));
+    var m = await message.channel.send(animation[0].join(" "));
     for (var i = 1; i < animation.length; i++) {
       await timeout(800);
-      m.edit(animation[i].join(" "))
+      m = await m.edit(animation[i].join(" "))
     }
   }
 }
