@@ -57,7 +57,7 @@ class JoinCommand extends Command {
           max: 1
         });
       console.log(coll)
-      //if (coll.get(""))
+      if (coll.get("❌")) console.log("xxx")
       /*var roles = await mongo.collection("sharableroles").find({}).toArray();
       roles.map(
         /**@param {SharableRole} sr * /
