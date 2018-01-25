@@ -41,20 +41,22 @@ class JoinCommand extends Command {
         new RichEmbed()
         .setColor(0x36393e)
         .setTitle("Fuck, u sure?")
-        .setTitle("React <:gasm:310821749467906048> to show that ur sure bro")
+        .setDescription("**React <:gasm:310821749467906048> to show that ur sure bro**")
+        .setAuthor("Or press :x: to not...")
       );
       await m.react(":gasm:310821749467906048");
+      await m.react("❌");
       var coll = await m.awaitReactions(
         /**
          * @param {MessageReaction} reaction
          * @param {User} user
          */
         (reaction, user) => {
-          return reaction.emoji.id == "310821749467906048";
+          return reaction.emoji.id == "310821749467906048" && user.id == message.author.id;
         }, {
           max: 1
         });
-      console.log(coll)
+      //if (coll.get(""))
       /*var roles = await mongo.collection("sharableroles").find({}).toArray();
       roles.map(
         /**@param {SharableRole} sr * /
