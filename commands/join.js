@@ -22,15 +22,17 @@ class JoinCommand extends Command {
       if (item == null) return message.channel.send(new util.d.RichEmbed().setTitle("Clan not found").setColor(util.red));
       var locked = true;
       var clans = await global.mongo.collection("clans").find({}).toArray();
-      clans.map(c => {
-        message.member.removeRole(message.guild.roles.get(c.role))
-      })
+      for (var i =0; i<clans.length; i++){
+        var c = clans[i];
+        await message.member.removeRole(message.guild.roles.get(c.role))
+      }
+    await ((ms)=>new Promise((resolve,rej) => setTimeout(resolve,ms)))()
       await message.channel.send(new util.d.RichEmbed()
       .setTitle(":white_check_mark: You joined " + item.displayName)
       .setColor(parseInt(item.color, 16))
       .setFooter(util.makeFooter(message.author), message.author.displayAvatarURL))
-    message.member.addRole(message.guild.roles.get(item.role))
-    message.member.removeRole("320199117467025418")
+    await message.member.addRole(message.guild.roles.get(item.role))
+    await message.member.removeRole("437213205782069259")
   }
 }
 module.exports = JoinCommand;

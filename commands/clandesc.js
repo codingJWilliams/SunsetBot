@@ -24,8 +24,8 @@ class ClansCommand extends Command {
     });
   }
   async exec(message, args) {
-    if (!message.member.roles.has("334988662850846720")) {
-      message.channel.send(new util.d.RichEmbed()
+    if (!message.member.roles.has("433693780781039626")) {
+      return message.channel.send(new util.d.RichEmbed()
         .setColor(0xfd5c5c)
         .setTitle(":octagonal_sign: I cannot let you do that.")
         .setDescription("You are not a clan leader")

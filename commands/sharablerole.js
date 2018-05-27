@@ -20,7 +20,7 @@ class SrCommand extends Command {
     });
   }
   async exec(message, args) {
-    if (!message.member.roles.has("378906283727781888")) return message.channel.send(new util.d.RichEmbed()
+    if (!message.member.roles.has("433018096144482325")) return message.channel.send(new util.d.RichEmbed()
       .setTitle(":octagonal_sign: Stop right there!")
       .setDescription("You must be `Staff` to use this command")
       .setColor(0xfd5c5c)
